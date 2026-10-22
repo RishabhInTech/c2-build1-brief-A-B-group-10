@@ -1,0 +1,150 @@
+{
+ "generated": "sample subset of the full pack",
+ "files": [
+  {
+   "path": "README.md",
+   "bytes": 2037,
+   "sha256": "7676c50315128fe6dd290192f44a0495ce556694ca39715dbf3b377f5f4398d3"
+  },
+  {
+   "path": "reference/cities.csv",
+   "bytes": 130,
+   "sha256": "18770341c1e1f67eca05976c1f1bf2e6752cfc48a2c3f59c164b6b6f4d9f24a3"
+  },
+  {
+   "path": "reference/clinics.csv",
+   "bytes": 1757,
+   "sha256": "82bc460b4dfacb9e1d4a906f68860b1c9db1215cea9ad71168095c620392daa3"
+  },
+  {
+   "path": "reference/tests_catalogue.csv",
+   "bytes": 669,
+   "sha256": "e8e81ca0bbcc44f7b9c7251d543badbc010e81511849b2153c7cc4ff25336ca9"
+  },
+  {
+   "path": "plan/plan_2026_H1.csv",
+   "bytes": 464,
+   "sha256": "9cb9fc298d91872cd3c5f90ac4b9538e043efb9c14e08c9809798d9cb30fa947"
+  },
+  {
+   "path": "campaigns/campaigns.csv",
+   "bytes": 129,
+   "sha256": "c09ce43c36de8bc4a5e6b6f6b0f5470f4868fab8df5b6c79ff39b71292c84fdc"
+  },
+  {
+   "path": "campaigns/campaign_bookings.csv.gz",
+   "bytes": 132281,
+   "sha256": "6eba6e8eae32720d518d4bdc8da0a6e126a6381c9ea1cec309de77655ced65a1"
+  },
+  {
+   "path": "patients/patients.csv.gz",
+   "bytes": 6290524,
+   "sha256": "4e5607afa48191dd24e2b5b4d3cf4a30bf30e0650160eb09ac4f9065a4aaa261"
+  },
+  {
+   "path": "bookings/legacy/chennai/bookings_2026-03.csv.gz",
+   "bytes": 158526,
+   "sha256": "191c11118b8db864b85f283f2b0c0e5b9fa03d3ccf96993d6e696922718ef2a2"
+  },
+  {
+   "path": "bookings/legacy/bengaluru/bookings_2025-03.csv.gz",
+   "bytes": 215062,
+   "sha256": "77c606da57292c33b0bd6811e1f0f53408904bfc9cff56f88eb87bda85c64836"
+  },
+  {
+   "path": "bookings/legacy/jaipur/bookings_2026-02.csv.gz",
+   "bytes": 80601,
+   "sha256": "938e3b9b349601597088f109b1852f1ec289c6c29fa58bc5d384065250672856"
+  },
+  {
+   "path": "bookings/nova/chennai/bookings_2026-04.jsonl.gz",
+   "bytes": 145555,
+   "sha256": "4bed6d42164acf8131fd3b8f05528edcb3d34e019145614ee33edfb682ea5a5f"
+  },
+  {
+   "path": "bookings/nova/jaipur/bookings_2026-04.jsonl.gz",
+   "bytes": 71895,
+   "sha256": "01c6fd39d5a49cd99ced400cd13e38dfbbac209ec4d6d62b2e179035f696b430"
+  },
+  {
+   "path": "collections/collections_CHE_2026-03.csv.gz",
+   "bytes": 45329,
+   "sha256": "ac015dc0ee4d8a248ce0015efa317b911bce85fd5821897dba936d64b1f38ee6"
+  },
+  {
+   "path": "collections/collections_CHE_2026-04.csv.gz",
+   "bytes": 43258,
+   "sha256": "a22334799a30d99de3d9a2a51588639ee454de2ae27759e5fd9b54d59651f63d"
+  },
+  {
+   "path": "collections/collections_BLR_2025-03.csv.gz",
+   "bytes": 58541,
+   "sha256": "3ece463740c022f31ea66d7afe66259cd65c72c58cc8cda545d2aaf8a54d98c0"
+  },
+  {
+   "path": "collections/collections_JAI_2026-02.csv.gz",
+   "bytes": 23223,
+   "sha256": "b44917581d679099864da0f68c0d3489d39fd7fc6c1d676d2ee2bd8d53fe74d9"
+  },
+  {
+   "path": "collections/collections_JAI_2026-04.csv.gz",
+   "bytes": 21625,
+   "sha256": "63612c96a7def462ce67dda88d080bc511323c70f6f888429e3e5be2405dd17b"
+  },
+  {
+   "path": "results/chennai/results_2026-03.csv.gz",
+   "bytes": 106906,
+   "sha256": "368a703e9e0af9b644d583db4f6fe9bd5aaa53761079d204ac05ef9163fc811c"
+  },
+  {
+   "path": "results/chennai/results_2026-04.csv.gz",
+   "bytes": 103569,
+   "sha256": "b1f50658635898196f91f5432aca1b3936dfdfcca0456bb349ee5a6f961f303b"
+  },
+  {
+   "path": "results/bengaluru/results_2025-03.csv.gz",
+   "bytes": 138374,
+   "sha256": "b81236e681b36efcb6c02d02b27fefac9c2f947f75a3dd7b6ca07ecbe33eda92"
+  },
+  {
+   "path": "results/jaipur/results_2026-02.csv.gz",
+   "bytes": 55780,
+   "sha256": "17dc621b7a32d42227100b01766c89b90e8ae5a31dad693f96fe60e2894498ac"
+  },
+  {
+   "path": "results/jaipur/results_2026-04.csv.gz",
+   "bytes": 51858,
+   "sha256": "5e1c31ee524eea60be1f92dca563495e136939e62c398b67d910fcd9bb9c9f46"
+  },
+  {
+   "path": "invoices/invoices_2026Q1.csv.gz",
+   "bytes": 1148540,
+   "sha256": "daab5ee3dda84d8982583647e0fa09e475515e58408f0bb668c5442d40772f83"
+  },
+  {
+   "path": "invoices/invoices_2026Q2.csv.gz",
+   "bytes": 1093153,
+   "sha256": "1566109bf531a94d31df550d8cffe956347fe597bfa55cdd6d2d069d782de2b3"
+  },
+  {
+   "path": "payments/gateway_export_2026-03.csv.gz",
+   "bytes": 366191,
+   "sha256": "1b7fc8fec0c6a6ec92e859aa9820c3d1256ecbaa015b8ab6c2d8d47c95ee3492"
+  },
+  {
+   "path": "payments/gateway_export_2026-04.csv.gz",
+   "bytes": 353119,
+   "sha256": "9b32b85083717a0cbc0f20bbed76f4537bb93b6f74b3dd24bcdfe43c385d18a8"
+  },
+  {
+   "path": "payments/settlements_2026Q1.csv.gz",
+   "bytes": 2707,
+   "sha256": "b15ec9996c7e845b957c5c90c2ae1d0811e34f4d046ae906a4d19d13714ee104"
+  },
+  {
+   "path": "payments/settlements_2026Q2.csv.gz",
+   "bytes": 2723,
+   "sha256": "6d7cf326e422056022d7825e3a592ef7cf7ec845f26b2a5c079c9e176ade5726"
+  }
+ ]
+}
