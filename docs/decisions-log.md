@@ -38,3 +38,12 @@ These are analysis choices, separate from the raw-to-clean reconciliation above.
 | Date | Who ran it | Fresh Codespace? | Runtime | Headline number | Same as last run? | If not, why |
 |---|---|---|---|---|---|---|
 | | | | | | | |
+
+## Brief D analysis decisions (2026-10-23)
+
+| # | Analysis choice | Decision | Rationale | Effect / caveat |
+|---|---|---|---|---|
+| D1 | No-show definition | Count explicit `no_show`; use explicit `collected` as the other known outcome; retain no-row or unrecognized statuses as unknown | The handbook outcome is a booking where no sample was collected; absence of an event row is not proof of a no-show | Primary rates use 189,191 known outcomes; 7,283 unknowns are separately reported |
+| D2 | Appointment grain and dates | One distinct booking ID with a nonblank test code and H1 2026 `slot_at` | One visit can contain several test lines but has one collection outcome; appointment slot dates align the outcome question | Test count per booking is used as a case-mix factor; status and event reconciliation remain important |
+| D3 | Clinic fairness and chance | Compare within month/channel/test-count/time/day-type strata; run conditional hypergeometric shuffles and adjust against the maximum across 31 clinics | This accounts for observed appointment mix and the multiple-clinic scan | No clinic is a statistically established high outlier; this does not fix unknown-outcome bias |
+| D4 | Brief A/B connection | Compare known-outcome no-show rates and missing outcomes by month and source system | Separates appointment outcome from the volume metric and exposes a possible migration-era capture issue | CHE-03 unknowns are 2.4% on legacy vs 8.8% on Nova rostered bookings; this is an association, not causation |

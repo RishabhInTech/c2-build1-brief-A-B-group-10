@@ -1,0 +1,3 @@
+selection_rule,clinic_id,city,eligible_bookings,no_show_bookings,observed_raw_rate_pct,same_case_mix_peer_expected_rate_pct,standardized_difference_pp,conditional_shuffle_z,shuffle_p_one_sided,shuffle_p_max_adjusted,permutations,seed
+highest_raw_rate,JAI-05,Jaipur,154,27,17.532,14.589,2.943,1.04,0.128174,0.9976,5000,20261023
+largest_conditional_z,CHE-03,Chennai,6049,975,16.118,15.178,0.941,2.002,0.021196,0.538092,5000,20261023

@@ -11,6 +11,12 @@ The first Brief A/B analysis compares H1 test-volume growth and plan attainment 
 - Compact aggregate outputs: [`outputs/`](outputs/README.md)
 - Decisions and method: [`docs/decisions-log.md`](docs/decisions-log.md), [`docs/approach-log.md`](docs/approach-log.md)
 
+The first Brief D analysis compares clinic no-show rates at booking level. It reports counts with rates, accounts for appointment mix and the scan across 31 clinics, and flags missing collection outcomes. It does not establish a clinic as genuinely worse; CHE-03's post-migration outcome-capture gap is a priority for reconciliation.
+
+- Findings and limitations: [`docs/brief-d-no-show-analysis.md`](docs/brief-d-no-show-analysis.md)
+- Reproducible analysis: [`analyze_brief_d_no_shows.py`](analyze_brief_d_no_shows.py)
+- Aggregate outputs: [`outputs/brief_d/`](outputs/README.md)
+
 The full cleaned data pack is kept outside this repository. To regenerate outputs, run the script with `--data-dir` pointing to a folder containing the cleaned CSV tables; see the analysis report for the full command.
 
 ## What is in the kit
