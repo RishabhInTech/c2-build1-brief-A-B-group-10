@@ -5,3 +5,5 @@ __pycache__/
 .DS_Store
 data/clean/*.csv
 !data/clean/README.md
+data/clean/brief_c/*.csv
+data/clean/brief_c/*.json

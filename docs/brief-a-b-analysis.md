@@ -1,6 +1,6 @@
 # Brief A and Brief B: test volume and booking-system migration
 
-**Status:** First-pass descriptive analysis
+**Status:** Exploratory background analysis; Brief C is the final board-facing focus
 
 **Analysis period:** January–June 2025 and January–June 2026
 

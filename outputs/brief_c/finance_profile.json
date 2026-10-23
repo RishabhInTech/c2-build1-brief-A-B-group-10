@@ -1,0 +1,98 @@
+{
+  "scope": "Brief C financial tables only",
+  "tables": {
+    "invoices": {
+      "source_files": [
+        "invoices_2024Q4.csv.gz",
+        "invoices_2025Q1.csv.gz",
+        "invoices_2025Q2.csv.gz",
+        "invoices_2025Q3.csv.gz",
+        "invoices_2025Q4.csv.gz",
+        "invoices_2026Q1.csv.gz",
+        "invoices_2026Q2.csv.gz"
+      ],
+      "rows": 470776,
+      "repeated_header_rows_removed": 0,
+      "primary_key": "invoice_id",
+      "duplicate_invoice_id_rows": 0,
+      "duplicate_booking_id_rows": 0,
+      "invoice_date_min": "2024-12-30",
+      "invoice_date_max": "2026-06-30",
+      "amount_total_rs_over_nonblank_valid_rows": "737020069.00",
+      "blank_amount_rows": 0,
+      "invalid_amount_rows": 0
+    },
+    "gateway_payments": {
+      "source_files": [
+        "gateway_export_2024-12.csv.gz",
+        "gateway_export_2025-01.csv.gz",
+        "gateway_export_2025-02.csv.gz",
+        "gateway_export_2025-03.csv.gz",
+        "gateway_export_2025-04.csv.gz",
+        "gateway_export_2025-05.csv.gz",
+        "gateway_export_2025-06.csv.gz",
+        "gateway_export_2025-07.csv.gz",
+        "gateway_export_2025-08.csv.gz",
+        "gateway_export_2025-09.csv.gz",
+        "gateway_export_2025-10.csv.gz",
+        "gateway_export_2025-11.csv.gz",
+        "gateway_export_2025-12.csv.gz",
+        "gateway_export_2026-01.csv.gz",
+        "gateway_export_2026-02.csv.gz",
+        "gateway_export_2026-03.csv.gz",
+        "gateway_export_2026-04.csv.gz",
+        "gateway_export_2026-05.csv.gz",
+        "gateway_export_2026-06.csv.gz",
+        "gateway_export_2026-07.csv.gz"
+      ],
+      "rows": 473507,
+      "repeated_header_rows_removed": 0,
+      "primary_key": "payment_id",
+      "duplicate_payment_id_rows": 0,
+      "created_at_utc_min": "2024-12-30T16:49:38+00:00",
+      "created_at_utc_max": "2026-07-14T20:49:13+00:00",
+      "amount_total_rs_over_nonblank_valid_rows": "740587382.00",
+      "blank_amount_rows": 0,
+      "invalid_amount_rows": 0,
+      "blank_timestamp_rows": 0,
+      "invalid_timestamp_rows": 0,
+      "status_counts": {
+        "captured": 455469,
+        "failed": 18038
+      },
+      "method_counts": {
+        "upi": 245923,
+        "card": 132877,
+        "cash": 56863,
+        "netbanking": 37844
+      },
+      "invoice_reference_normalization": "trim outer whitespace and uppercase; raw value retained in invoice_ref_raw"
+    },
+    "settlements": {
+      "source_files": [
+        "settlements_2024Q4.csv.gz",
+        "settlements_2025Q1.csv.gz",
+        "settlements_2025Q2.csv.gz",
+        "settlements_2025Q3.csv.gz",
+        "settlements_2025Q4.csv.gz",
+        "settlements_2026Q1.csv.gz",
+        "settlements_2026Q2.csv.gz",
+        "settlements_2026Q3.csv.gz"
+      ],
+      "rows": 562,
+      "repeated_header_rows_removed": 0,
+      "primary_key": "settlement_id",
+      "duplicate_settlement_id_rows": 0,
+      "created_at_utc_min": "2024-12-31T10:00:00+00:00",
+      "created_at_utc_max": "2026-07-15T10:00:00+00:00",
+      "amount_total_rs": "695674389.39",
+      "fees_total_rs": "14249782.66",
+      "tax_total_rs": "2564960.95",
+      "status_counts": {
+        "processed": 562
+      }
+    }
+  },
+  "scope_note": "All supplied finance periods are included so later analysis can inspect late payment and settlement timing. The handbook's 'second quarter' year should be confirmed during analysis; cleaning does not filter to a quarter.",
+  "rows_retained_with_issues": 95921
+}

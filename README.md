@@ -4,22 +4,24 @@ This folder is the skeleton of your group's repository. Copy it into a new publi
 
 ## Current analysis status
 
-Briefs A and B establish the project's starting point: H1 test-volume growth was below plan, and we checked how the Chennai/Jaipur booking-system migration lined up with that gap. The comparison is descriptive and does not claim that Nova caused the observed volume changes.
+**Final board-facing focus: Brief C — Money.** The team chose Brief C after exploratory work on A/B and a no-finding check on D. The COO's question is: “Which invoices were never paid, which payments match no invoice, and how much of the gap is only timing?” The finance-only inputs have been cleaned; invoice/payment matching and the final bridge are the next analysis steps.
 
-- Findings and limitations: [`docs/brief-a-b-analysis.md`](docs/brief-a-b-analysis.md)
-- Reproducible analysis: [`analyze_brief_a_b_migration.py`](analyze_brief_a_b_migration.py)
-- Compact aggregate outputs: [`outputs/`](outputs/README.md)
-- Decisions and method: [`docs/decisions-log.md`](docs/decisions-log.md), [`docs/approach-log.md`](docs/approach-log.md)
+1. **Briefs A/B (exploratory):** H1 test-volume growth was below plan; we compared the Chennai/Jaipur booking-system migration descriptively and made no causal claim. See [`docs/brief-a-b-analysis.md`](docs/brief-a-b-analysis.md).
+2. **Brief D (exploratory, no reliable clinic finding):** after adjusting for appointment mix and scanning clinics, no clinic was established as worse; the result did not explain the volume gap. CHE-03's missing-outcome capture is retained as a data-quality follow-up. See [`docs/brief-d-no-show-analysis.md`](docs/brief-d-no-show-analysis.md).
+3. **Brief C (selected final focus):** current state and open decisions are in [`docs/brief-c-analysis.md`](docs/brief-c-analysis.md) and [`docs/project-statement.md`](docs/project-statement.md).
 
-Brief D was then checked at booking level. No clinic emerged as a reliable worse-performing outlier after accounting for appointment mix and the scan across 31 clinics, so this brief did not provide a useful explanation for the volume shortfall. We are moving to the next brief; the CHE-03 outcome-capture gap remains a data-quality follow-up, not evidence of worse no-show performance.
+### Reproducible command-line workflows
 
-- Findings and limitations: [`docs/brief-d-no-show-analysis.md`](docs/brief-d-no-show-analysis.md)
-- Reproducible analysis: [`analyze_brief_d_no_shows.py`](analyze_brief_d_no_shows.py)
-- Aggregate outputs: [`outputs/brief_d/`](outputs/README.md)
+| Brief | Script | Purpose |
+|---|---|---|
+| A · Jaipur | [`analyze_brief_a_jaipur.py`](analyze_brief_a_jaipur.py) | City/channel drill-down for the H1 growth gap |
+| A/B · migration | [`analyze_brief_a_b_migration.py`](analyze_brief_a_b_migration.py) | Volume, plan, and Chennai/Jaipur migration comparison |
+| C · money | [`clean_brief_c.py`](clean_brief_c.py) | Finance-only cleaning: invoices, gateway attempts, settlement rows |
+| D · no-shows | [`analyze_brief_d_no_shows.py`](analyze_brief_d_no_shows.py) | Clinic rates, case mix, and shuffle-based chance reference |
 
-The project has moved on from Brief D because the available evidence did not identify a clinic-level performance issue. Revisit D if missing collection outcomes are reconciled; continue with the next brief as a separate analysis.
+Brief-specific aggregate outputs are in [`outputs/`](outputs/README.md). Reusable notebook helpers remain in `src/kalpa/`; these small, reproducible brief workflows are kept as top-level entry points so the team can run them directly.
 
-The full cleaned data pack is kept outside this repository. To regenerate outputs, run the script with `--data-dir` pointing to a folder containing the cleaned CSV tables; see the analysis report for the full command.
+Full raw and row-level cleaned datasets remain local and are not committed. This follows the starter kit's `data/clean/` and `.gitignore` instructions. Regenerate Brief C tables with the cleaner and a `--source-dir` pointing to the full local data pack; generated files go under `data/clean/brief_c/` in the starter-kit checkout. Only aggregate profiles/outputs and code belong in GitHub.
 
 ## What is in the kit
 
