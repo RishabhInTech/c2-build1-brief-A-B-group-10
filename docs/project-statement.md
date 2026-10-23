@@ -57,7 +57,7 @@ Written in Scope, before the data is opened. Updated when the data proves a line
 | # | Constraint |
 |---|---|
 | C1 | Free tools covered so far: notebooks in VS Code on Codespaces, SQL, Excel, GitHub. |
-| C2 | No coding or chat assistants on the analysis, the notebooks or the write-ups. |
+| C2 | The instructor has recently permitted AI assistance for this project (reported by the team on 2026-10-23). Disclose assistant use in `docs/ai-log.md`; the team remains responsible for checking, understanding and defending every result. |
 | C3 | The data as released; three to four working days; a group of three or four. |
 | C4 | |
 

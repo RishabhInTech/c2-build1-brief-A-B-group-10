@@ -1,0 +1,7 @@
+city,group,y2025_h1_test_lines,y2026_h1_test_lines,yoy_growth_pct,y2026_h1_plan,plan_attainment_pct,variance_vs_plan
+Ahmedabad,control,76910,83770,8.92,90773,92.29,-7003
+Bengaluru,control,100007,106058,6.05,120085,88.32,-14027
+Chennai,treated,80292,82002,2.13,93912,87.32,-11910
+Hyderabad,control,73117,77533,6.04,86421,89.72,-8888
+Jaipur,treated,45057,40901,-9.22,52372,78.1,-11471
+Pune,control,60711,64609,6.42,72177,89.51,-7568

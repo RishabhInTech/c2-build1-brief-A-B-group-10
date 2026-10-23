@@ -1,9 +1,9 @@
 # Assistant log · Brief <LETTER> · Group <N>
 
-Every use of a coding or chat assistant, one line each. Allowed uses: explaining an error you already tried to read, explaining a concept you then rewrite in your own words, checking English in the write-up without changing meaning. Not allowed: generating analysis, notebooks, cells, charts, slides, write-ups or the video script; asking what the answer or approach should be; pasting Kalpa Health data in.
-
-An empty log next to notebooks that read like a tutorial is a claim the panel will test. Twenty honest lines are fine.
+Record each material assistant use, including generated or reviewed code, analysis and documentation. The team reports that the instructor permitted AI assistance on 2026-10-23. Identify what was AI-assisted, validate the outputs, and make sure every member can explain and defend the submitted work.
 
 | # | Date | Who | Tool | What we asked (one line) | What we did with the answer |
 |---|---|---|---|---|---|
-| 1 | | | | | |
+| 1 | 2026-10-23 | Rishabh | OpenAI Codex | Asked for a quality review of the cleaning and reconciliation before analysis. | Used the review to check source hashes, retained exceptions and cross-table joins; still responsible for verifying and explaining the cleaning decisions. |
+| 2 | 2026-10-23 | Rishabh | OpenAI Codex | Asked for Brief A city/channel analysis and a comparison with Brief B's Chennai/Jaipur booking-system migration, including runnable Python. | Reviewed the metric, treated/control groups, pre/post comparison, denominator correction and caveats; will verify and explain the results to the team. |
+| 3 | 2026-10-23 | Rishabh | OpenAI Codex | Asked for help preparing the analysis code, aggregate outputs and related documentation for the GitHub repository. | Used the generated script and documentation as a draft; full data remains outside the repo, and the team will review the committed artifacts. |

@@ -2,6 +2,17 @@
 
 This folder is the skeleton of your group's repository. Copy it into a new public repository on the first day, before any analysis, and fill it as you go. Everything the panel reads lives here; nothing that lives only in a chat or on a laptop counts.
 
+## Current analysis status
+
+The first Brief A/B analysis compares H1 test-volume growth and plan attainment with the Chennai/Jaipur booking-system migration. It is descriptive and does not claim that Nova caused the observed volume changes.
+
+- Findings and limitations: [`docs/brief-a-b-analysis.md`](docs/brief-a-b-analysis.md)
+- Reproducible analysis: [`analyze_brief_a_b_migration.py`](analyze_brief_a_b_migration.py)
+- Compact aggregate outputs: [`outputs/`](outputs/README.md)
+- Decisions and method: [`docs/decisions-log.md`](docs/decisions-log.md), [`docs/approach-log.md`](docs/approach-log.md)
+
+The full cleaned data pack is kept outside this repository. To regenerate outputs, run the script with `--data-dir` pointing to a folder containing the cleaned CSV tables; see the analysis report for the full command.
+
 ## What is in the kit
 
 | Path | What it is | When you touch it |

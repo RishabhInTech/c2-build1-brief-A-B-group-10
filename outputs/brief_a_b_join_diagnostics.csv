@@ -1,0 +1,6 @@
+year,group,source_system,distinct_bookings,bookings_with_collection,collection_booking_match_pct,test_lines,test_lines_with_matching_result,result_test_line_match_pct
+2025,control,legacy,135263,131253,97.04,310745,252929,81.39
+2025,treated,legacy,54576,52942,97.01,125349,101762,81.18
+2026,control,legacy,141575,137321,97.0,331970,272091,81.96
+2026,treated,legacy,25738,24960,96.98,60485,49801,82.34
+2026,treated,nova,26522,24304,91.64,62418,47921,76.77
