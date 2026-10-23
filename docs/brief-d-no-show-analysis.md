@@ -10,6 +10,8 @@ Among 189,191 bookings with a recorded `collected` or `no_show` outcome, 26,502 
 
 Therefore, the data do **not establish that any clinic is genuinely worse** after accounting for appointment mix and the fact that management scanned many clinics. JAI-05's high percentage is compatible with substantial sampling variation. CHE-03 merits follow-up because it has a large volume and an elevated raw rate, but its observed excess is also compatible with chance under the all-clinic reference.
 
+**Disposition:** Brief D did not identify a dependable clinic-level performance issue and does not explain Brief A's 4.3% actual growth against 18.3% implied plan growth. We are treating this as an inconclusive check and moving to the next brief. The remaining CHE-03 issue is outcome capture; it should be revisited if those records are reconciled.
+
 There is a material outcome-capture limitation: **7,283 of 196,474 rostered bookings (3.71%)** have no usable collection outcome. They are not labelled no-shows. The outcome is especially incomplete at CHE-03 after the booking-system transition, so the comparison is not fully conclusive until that data gap is reconciled.
 
 ## Definition and method

@@ -4,18 +4,20 @@ This folder is the skeleton of your group's repository. Copy it into a new publi
 
 ## Current analysis status
 
-The first Brief A/B analysis compares H1 test-volume growth and plan attainment with the Chennai/Jaipur booking-system migration. It is descriptive and does not claim that Nova caused the observed volume changes.
+Briefs A and B establish the project's starting point: H1 test-volume growth was below plan, and we checked how the Chennai/Jaipur booking-system migration lined up with that gap. The comparison is descriptive and does not claim that Nova caused the observed volume changes.
 
 - Findings and limitations: [`docs/brief-a-b-analysis.md`](docs/brief-a-b-analysis.md)
 - Reproducible analysis: [`analyze_brief_a_b_migration.py`](analyze_brief_a_b_migration.py)
 - Compact aggregate outputs: [`outputs/`](outputs/README.md)
 - Decisions and method: [`docs/decisions-log.md`](docs/decisions-log.md), [`docs/approach-log.md`](docs/approach-log.md)
 
-The first Brief D analysis compares clinic no-show rates at booking level. It reports counts with rates, accounts for appointment mix and the scan across 31 clinics, and flags missing collection outcomes. It does not establish a clinic as genuinely worse; CHE-03's post-migration outcome-capture gap is a priority for reconciliation.
+Brief D was then checked at booking level. No clinic emerged as a reliable worse-performing outlier after accounting for appointment mix and the scan across 31 clinics, so this brief did not provide a useful explanation for the volume shortfall. We are moving to the next brief; the CHE-03 outcome-capture gap remains a data-quality follow-up, not evidence of worse no-show performance.
 
 - Findings and limitations: [`docs/brief-d-no-show-analysis.md`](docs/brief-d-no-show-analysis.md)
 - Reproducible analysis: [`analyze_brief_d_no_shows.py`](analyze_brief_d_no_shows.py)
 - Aggregate outputs: [`outputs/brief_d/`](outputs/README.md)
+
+The project has moved on from Brief D because the available evidence did not identify a clinic-level performance issue. Revisit D if missing collection outcomes are reconciled; continue with the next brief as a separate analysis.
 
 The full cleaned data pack is kept outside this repository. To regenerate outputs, run the script with `--data-dir` pointing to a folder containing the cleaned CSV tables; see the analysis report for the full command.
 
