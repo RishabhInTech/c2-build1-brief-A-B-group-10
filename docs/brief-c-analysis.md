@@ -14,6 +14,12 @@ This is the second analysis step. The project first checked H1 active booked tes
 
 The board number is invoice-wise positive balance, not a net across invoices. Captured overpayments on other invoices are reported separately and must not be used to offset unrelated balances without Finance approval.
 
+## Full supplied-period totals
+
+The roughly ₹72–73 crore figure is correct for **all supplied invoice periods**, not Q2 alone. The source pack contains **470,776 invoices totaling ₹737,020,069 (₹73.70 crore)**, dated 30 Dec 2024 through 30 Jun 2026. The gateway pack contains **455,469 captured attempts totaling ₹712,489,133 (₹71.25 crore gross)**, dated through 15 Jul 2026. Of the captured amount, **₹705,219,725 (₹70.52 crore)** has a safe invoice match; **4,588 captured attempts totaling ₹7,269,408 (₹0.73 crore)** do not.
+
+These are source-wide totals across different date windows, not a same-period collection rate or a bank reconciliation. “Captured” means the gateway status is `captured`; it does not by itself establish invoice allocation or bank settlement. The Q2-only board bridge above remains **₹132.847m billed (₹13.28 crore)**, with **₹119.266m (₹11.93 crore)** in safely matched captures by quarter end. The all-period audit rows are in [`finance_all_period_summary.csv`](../outputs/brief_c/finance_all_period_summary.csv), with rupee-precision values.
+
 ## Headline bridge
 
 | Q2 2026 item | Rows / invoices | INR | Rule |

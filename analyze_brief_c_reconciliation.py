@@ -94,6 +94,7 @@ def main():
         action_dir / "quarter_unmatched_captures.csv", index=False)
     all_captured = payments[payments["status"] == "captured"]
     all_unmatched = all_captured[all_captured["mapped_invoice_id"].isna()]
+    all_matched = all_captured[all_captured["mapped_invoice_id"].notna()]
 
     # Match settlement IDs separately; this does not establish bank receipt.
     settled_captures = all_captured[all_captured["settlement_id"].ne("")].groupby("settlement_id")["amount_cents"].sum()
@@ -127,6 +128,15 @@ def main():
             "unmatched_captured_amount_rs_in_quarter": rupees(q_unmatched["amount_cents"].sum()),
             "reference_format_counts": {str(k): int(v) for k, v in payments["invoice_ref"].str.replace(
                 r"\d", "9", regex=True).value_counts().items()},
+        },
+        "all_supplied_periods": {
+            "invoice_count": len(invoices), "invoice_amount_rs": rupees(invoices["amount_cents"].sum()),
+            "gateway_attempt_rows": len(payments), "captured_rows": len(all_captured),
+            "captured_amount_rs": rupees(all_captured["amount_cents"].sum()),
+            "matched_captured_rows": len(all_matched),
+            "matched_captured_amount_rs": rupees(all_matched["amount_cents"].sum()),
+            "unmatched_captured_rows": len(all_unmatched),
+            "unmatched_captured_amount_rs": rupees(all_unmatched["amount_cents"].sum()),
         },
         "invoice_cohort": {
             "invoice_count": len(cohort), "invoice_amount_rs": rupees(cohort["amount_cents"].sum()),
@@ -168,6 +178,16 @@ def main():
                                  str(action_dir / "quarter_unmatched_captures.csv")],
     }
     (output / "finance_bridge_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+
+    all_period_rows = [
+        ("Invoices, all supplied periods", len(invoices), invoices["amount_cents"].sum()),
+        ("Captured attempts, all supplied periods (gross)", len(all_captured), all_captured["amount_cents"].sum()),
+        ("Captured attempts with safe invoice match", len(all_matched), all_matched["amount_cents"].sum()),
+        ("Captured attempts without invoice match", len(all_unmatched), all_unmatched["amount_cents"].sum()),
+    ]
+    pd.DataFrame([{"item": name, "rows": int(count), "amount_rs": rupees(amount)}
+                  for name, count, amount in all_period_rows]).to_csv(
+                      output / "finance_all_period_summary.csv", index=False)
 
     rows = [
         ("Q2 invoices", len(cohort), cohort["amount_cents"].sum()),

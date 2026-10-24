@@ -1,0 +1,5 @@
+item,rows,amount_rs
+"Invoices, all supplied periods",470776,737020069.00
+"Captured attempts, all supplied periods (gross)",455469,712489133.00
+Captured attempts with safe invoice match,450881,705219725.00
+Captured attempts without invoice match,4588,7269408.00

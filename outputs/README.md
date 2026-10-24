@@ -26,5 +26,6 @@ The team selected Brief C as the final board-facing brief. `clean_brief_c.py` cr
 | `brief_c/quality_issue_summary.csv` | Dataset and issue type | Aggregate counts of format exceptions; no payment or invoice identifiers |
 | `brief_c/finance_bridge_summary.csv` | Bridge item | Reconciled row counts and INR amounts |
 | `brief_c/finance_bridge_summary.json` | Bridge and source checks | Period, cutoff, mapping coverage, balance, unmatched capture and settlement diagnostic |
+| `brief_c/finance_all_period_summary.csv` | All supplied finance periods | Invoice total, gross captured total, safely matched captures and unmatched captures |
 
 See [`docs/brief-c-analysis.md`](../docs/brief-c-analysis.md) for the board sentence, bridge definitions, settlement limitation and rebuild command. Transaction-level Finance action lists stay local under the ignored `data/clean/brief_c/actions/` folder.

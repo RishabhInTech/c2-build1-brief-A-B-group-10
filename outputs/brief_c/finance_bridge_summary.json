@@ -19,6 +19,17 @@
       "INV-9999-9999999": 2789
     }
   },
+  "all_supplied_periods": {
+    "invoice_count": 470776,
+    "invoice_amount_rs": "737020069.00",
+    "gateway_attempt_rows": 473507,
+    "captured_rows": 455469,
+    "captured_amount_rs": "712489133.00",
+    "matched_captured_rows": 450881,
+    "matched_captured_amount_rs": "705219725.00",
+    "unmatched_captured_rows": 4588,
+    "unmatched_captured_amount_rs": "7269408.00"
+  },
   "invoice_cohort": {
     "invoice_count": 79246,
     "invoice_amount_rs": "132847274.00",
