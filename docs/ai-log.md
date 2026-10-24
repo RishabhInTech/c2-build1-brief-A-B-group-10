@@ -1,4 +1,4 @@
-# Assistant log · Brief <LETTER> · Group <N>
+# Assistant log · Brief C · Group 10
 
 Every use of a coding or chat assistant, one line each. Allowed uses: explaining an error you already tried to read, explaining a concept you then rewrite in your own words, checking English in the write-up without changing meaning. Not allowed: generating analysis, notebooks, cells, charts, slides, write-ups or the video script; asking what the answer or approach should be; pasting Kalpa Health data in.
 
