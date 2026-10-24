@@ -1,4 +1,4 @@
-# Challenges log · Brief <LETTER> · Group <N>
+# Challenges log · Brief C · Group 10
 
 What broke or surprised us, what we tried, what we changed and why. Entries are dated and written as they happen. A log written on the last evening answers no interview question, and the commit history shows which kind this is.
 
