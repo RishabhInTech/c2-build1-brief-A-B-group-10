@@ -1,4 +1,4 @@
-# Approach log · Brief <LETTER> · Group <N>
+# Approach log · Brief C · Group 10
 
 One row per part of the work. At least two approaches in every row. Written when the choice is made, not afterwards; the commit timestamp is the proof. An approach you tried for twenty minutes and abandoned is the best kind of row. Keep the dead notebook cell and link to it.
 
