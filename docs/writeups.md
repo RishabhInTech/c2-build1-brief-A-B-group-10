@@ -1,4 +1,4 @@
-# Individual write-ups · Brief <LETTER> · Group <N>
+# Individual write-ups · Brief C · Group 10
 
 ## Group summary
 
