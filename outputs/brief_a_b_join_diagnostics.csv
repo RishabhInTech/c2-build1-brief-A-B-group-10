@@ -3,4 +3,4 @@ year,group,source_system,distinct_bookings,bookings_with_collection,collection_b
 2025,treated,legacy,54576,52942,97.01,125349,101762,81.18
 2026,control,legacy,141575,137321,97.0,331970,272091,81.96
 2026,treated,legacy,25738,24960,96.98,60485,49801,82.34
-2026,treated,nova,26522,24304,91.64,62418,47921,76.77
+2026,treated,nova,25023,22856,91.34,58877,45056,76.53

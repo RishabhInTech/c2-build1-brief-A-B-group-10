@@ -4,14 +4,24 @@ This folder is the skeleton of your group's repository. Copy it into a new publi
 
 ## Current analysis status
 
-The first Brief A/B analysis compares H1 test-volume growth and plan attainment with the Chennai/Jaipur booking-system migration. It is descriptive and does not claim that Nova caused the observed volume changes.
+**Analysis order:** first establish H1 test-volume growth against plan, then show the finance bridge. After excluding 3,541 superseded reschedule lines, H1 active booked test lines grew 3.49% (451,332 versus 436,094), against 18.26% implied by plan; the gap is 64,408 lines. The unfiltered sensitivity is 4.31%. The volume result and its limits are in [`docs/project-analysis.md`](docs/project-analysis.md). The final COO question is Brief C: “Which invoices were never paid, which payments match no invoice, and how much of the gap is only timing?” Its provisional Q2 2026 bridge is documented with cutoff, row counts, INR amounts and limitations.
 
-- Findings and limitations: [`docs/brief-a-b-analysis.md`](docs/brief-a-b-analysis.md)
-- Reproducible analysis: [`analyze_brief_a_b_migration.py`](analyze_brief_a_b_migration.py)
-- Compact aggregate outputs: [`outputs/`](outputs/README.md)
-- Decisions and method: [`docs/decisions-log.md`](docs/decisions-log.md), [`docs/approach-log.md`](docs/approach-log.md)
+1. **H1 volume first:** see the calculation, city/month/channel breakdown and migration limits in [`docs/project-analysis.md`](docs/project-analysis.md) and [`docs/brief-a-b-analysis.md`](docs/brief-a-b-analysis.md).
+2. **Finance bridge next:** the Q2 reconciliation and action lists are in [`docs/brief-c-analysis.md`](docs/brief-c-analysis.md) and [`docs/project-statement.md`](docs/project-statement.md).
 
-The full cleaned data pack is kept outside this repository. To regenerate outputs, run the script with `--data-dir` pointing to a folder containing the cleaned CSV tables; see the analysis report for the full command.
+### Reproducible command-line workflows
+
+| Brief | Script | Purpose |
+|---|---|---|
+| A · H1 volume | [`analyze_h1_volume.py`](analyze_h1_volume.py) | Active booked test lines, plan attainment, monthly/city/channel breakdown and reschedule sensitivity |
+| A · Jaipur | [`analyze_brief_a_jaipur.py`](analyze_brief_a_jaipur.py) | City/channel drill-down for the H1 growth gap |
+| A/B · migration | [`analyze_brief_a_b_migration.py`](analyze_brief_a_b_migration.py) | Volume, plan, and Chennai/Jaipur migration comparison |
+| C · money | [`clean_brief_c.py`](clean_brief_c.py) | Finance-only cleaning: invoices, gateway attempts, settlement rows |
+| C · reconciliation | [`analyze_brief_c_reconciliation.py`](analyze_brief_c_reconciliation.py) | Invoice-to-capture bridge, unmatched captures and settlement diagnostic |
+
+Brief-specific aggregate outputs are in [`outputs/`](outputs/README.md). Reusable notebook helpers remain in `src/kalpa/`; these small, reproducible brief workflows are kept as top-level entry points so the team can run them directly.
+
+Full raw and row-level cleaned datasets remain local and are not committed. This follows the starter kit's `data/clean/` and `.gitignore` instructions. Regenerate Brief C tables with the cleaner and a `--source-dir` pointing to the full local data pack; generated files go under `data/clean/brief_c/` in the starter-kit checkout. Only aggregate profiles/outputs and code belong in GitHub.
 
 ## What is in the kit
 

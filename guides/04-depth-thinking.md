@@ -27,7 +27,7 @@ Open every answer at level three. Reach level four when pressed. Reach level fiv
 
 A worked chain, as an illustration of the method and not as an answer:
 
-1. Why is Kalpa Health 13 points short? Test volume grew 5 against 18.
+1. Why is Kalpa Health 14.77 percentage points short? Active booked test volume grew 3.49% against 18.26% implied plan growth.
 2. Why did volume grow so little? Fewer patients, fewer visits, or fewer tests per visit. Nobody has split it.
 3. Why has nobody split it? The dashboard reports one number; the plan was set per city on last year's mix.
 4. Why one number? The board asked for one, and nobody asked what they would do with it.

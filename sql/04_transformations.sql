@@ -42,31 +42,30 @@ LEFT JOIN (SELECT city, month, sum(n_tests) AS tests FROM bookings WHERE status_
        ON m.city = p.city AND m.month = p.month
 ORDER BY p.city, p.month;
 
--- 4. The bridge. Grain: one row per bar. Denominator: invoices dated in Q2 2026.
+-- 4. Q2 2026 invoice balances. Amounts use captured payments through quarter close.
 WITH q2 AS (
     SELECT invoice_id, amount_rs FROM invoices WHERE invoice_date >= '2026-04-01' AND invoice_date < '2026-07-01'
 ),
 paid AS (
-    SELECT invoice_id, sum(amount_rs) AS paid_rs, min(created_at) AS first_paid
-    FROM payments WHERE status = 'captured' GROUP BY invoice_id
-),
-classified AS (
-    SELECT q2.invoice_id, q2.amount_rs, paid.paid_rs,
-           CASE WHEN paid.invoice_id IS NULL THEN 'never paid'
-                WHEN paid.first_paid > '2026-06-30 23:59:59' THEN 'paid after cutoff (timing)'
-                ELSE 'collected in quarter' END AS bar
-    FROM q2 LEFT JOIN paid ON paid.invoice_id = q2.invoice_id
+    SELECT invoice_id,
+           sum(amount_rs) FILTER (WHERE status = 'captured' AND created_at < '2026-07-01') AS paid_rs,
+           count(*) FILTER (WHERE status = 'captured' AND created_at < '2026-07-01') AS captures
+    FROM payments GROUP BY invoice_id
 )
-SELECT bar, count(*) AS invoices, sum(amount_rs) AS invoiced_rs, sum(coalesce(paid_rs, 0)) AS paid_rs
-FROM classified GROUP BY bar ORDER BY bar;
+SELECT count(*) AS invoices, sum(q.amount_rs) AS invoiced_rs,
+       count(*) FILTER (WHERE p.paid_rs IS NULL) AS no_capture_invoices,
+       sum(q.amount_rs) FILTER (WHERE p.paid_rs IS NULL) AS no_capture_rs,
+       sum(greatest(q.amount_rs - coalesce(p.paid_rs, 0), 0)) AS positive_balance_rs,
+       count(*) FILTER (WHERE p.captures > 1) AS invoices_with_multiple_captures
+FROM q2 q LEFT JOIN paid p USING (invoice_id);
 
--- 5. The anti-joins. Grain: one row per orphan. These lists are what finance acts on.
+-- 5. Q2 captured payments without a matching invoice.
 SELECT p.payment_id, p.notes_invoice_ref, p.invoice_id AS normalised_ref, p.amount_rs
 FROM payments p
 LEFT JOIN invoices i ON i.invoice_id = p.invoice_id
-WHERE p.status = 'captured' AND i.invoice_id IS NULL
-ORDER BY p.amount_rs DESC
-LIMIT 20;
+WHERE p.status = 'captured' AND p.created_at >= '2026-04-01' AND p.created_at < '2026-07-01'
+  AND i.invoice_id IS NULL
+ORDER BY p.amount_rs DESC;
 
 -- 6. Retries: invoices with more than one payment row, split by status. Grain: one row per invoice.
 SELECT invoice_id, count(*) AS payment_rows,
@@ -77,12 +76,3 @@ GROUP BY invoice_id
 HAVING count(*) > 1
 ORDER BY captured_rows DESC, payment_rows DESC
 LIMIT 20;
-
--- 7. No-show rate per clinic with its denominator beside it. Grain: one row per clinic. Never present the rate without the bookings column.
-SELECT clinic_id, count(*) AS bookings,
-       sum(CASE WHEN status = 'no_show' THEN 1 ELSE 0 END) AS no_shows,
-       round(100.0 * sum(CASE WHEN status = 'no_show' THEN 1 ELSE 0 END) / count(*), 2) AS no_show_pct
-FROM bookings
-WHERE channel = 'clinic' AND status IN ('collected', 'no_show')
-GROUP BY clinic_id
-ORDER BY no_show_pct DESC;

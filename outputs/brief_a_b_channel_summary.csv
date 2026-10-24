@@ -1,6 +1,6 @@
 dimension,value,y2025_test_lines,y2026_test_lines,change,yoy_growth_pct
-channel,clinic,82690,68338,-14352,-17.36
-channel,home,42659,54565,11906,27.91
-booking_source,app,66414,65129,-1285,-1.93
-booking_source,phone,39478,38718,-760,-1.93
-booking_source,walkin,19457,19056,-401,-2.06
+channel,clinic,82690,66216,-16474,-19.92
+channel,home,42659,53146,10487,24.58
+booking_source,app,66414,63251,-3163,-4.76
+booking_source,phone,39478,37624,-1854,-4.7
+booking_source,walkin,19457,18487,-970,-4.99

@@ -36,8 +36,8 @@ Every link below was opened and checked on 19 October 2026. Read in this order: 
 |---|---|---|
 | Lean Enterprise Institute: the five whys | https://www.lean.org/lexicon-terms/5-whys/ | The original habit, in two paragraphs. |
 | Google SRE book: postmortem culture | https://sre.google/sre-book/postmortem-culture/ | Why a blameless record of what broke is worth more than a tidy story. The challenges log in practice. |
-| Wainer, "The Most Dangerous Equation" (chapter PDF, Princeton University Press) | https://assets.press.princeton.edu/chapters/s8863.pdf | Why small groups crowd both ends of any ranking. Brief D, and every ranking you ever make. |
-| Tu and Gilthorpe, "The most dangerous hospital or the most dangerous equation?" (BMC Health Services Research, 2007) | https://link.springer.com/article/10.1186/1472-6963-7-185 | The same idea applied to hospital league tables, with funnel plots as the fix. Brief D. |
+| Wainer, "The Most Dangerous Equation" (chapter PDF, Princeton University Press) | https://assets.press.princeton.edu/chapters/s8863.pdf | Why small groups crowd both ends of any ranking. |
+| Tu and Gilthorpe, "The most dangerous hospital or the most dangerous equation?" (BMC Health Services Research, 2007) | https://link.springer.com/article/10.1186/1472-6963-7-185 | The same idea applied to hospital league tables, with funnel plots as the fix. |
 | Blake, Nosko and Tadelis, "Consumer Heterogeneity and Paid Search Effectiveness" (NBER Working Paper 20171, 2014) | https://www.nber.org/papers/w20171 | eBay's experiments on whether its advertising caused anything. Brief E, and every campaign claim you will ever be shown. |
 
 ## How to read a source without losing the afternoon

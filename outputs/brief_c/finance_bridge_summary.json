@@ -1,0 +1,74 @@
+{
+  "period": "2026-Q2",
+  "quarter_start_ist": "2026-04-01T00:00:00+05:30",
+  "quarter_end_exclusive_ist": "2026-07-01T00:00:00+05:30",
+  "observation_cutoff_inclusive_ist": "2026-07-15",
+  "reference_rule": "Exact invoice ID, else remove hyphens when the invoice key is unique.",
+  "mapping": {
+    "invoice_ids": 470776,
+    "canonical_collisions": 0,
+    "mapped_gateway_rows": 468742,
+    "unmapped_gateway_rows": 4765,
+    "unmatched_captured_rows_all_observed": 4588,
+    "unmatched_captured_amount_rs_all_observed": "7269408.00",
+    "unmatched_captured_rows_in_quarter": 747,
+    "unmatched_captured_amount_rs_in_quarter": "1323051.00",
+    "reference_format_counts": {
+      "INV-9999-999999": 377586,
+      "INV9999999999": 93132,
+      "INV-9999-9999999": 2789
+    }
+  },
+  "invoice_cohort": {
+    "invoice_count": 79246,
+    "invoice_amount_rs": "132847274.00",
+    "matched_captured_attempt_rows_by_quarter_end": 71211,
+    "matched_captured_amount_rs_by_quarter_end": "119265677.00",
+    "invoices_with_any_capture_by_quarter_end": 70902,
+    "invoices_with_no_capture_by_quarter_end": 8344,
+    "no_capture_invoice_amount_rs_by_quarter_end": "14090027.00",
+    "partially_paid_invoices_by_quarter_end": 12,
+    "partial_invoice_face_amount_rs": "22945.00",
+    "partial_unpaid_balance_rs": "14836.00",
+    "overcaptured_invoices_by_quarter_end": 318,
+    "overcapture_rs": "523266.00",
+    "positive_invoice_balance_rs_by_quarter_end": "14104863.00",
+    "net_invoice_balance_rs_by_quarter_end": "13581597.00",
+    "no_capture_invoices_with_capture_by_observation_cutoff": 1763,
+    "face_amount_rs_of_those_later_paid_invoices": "2982123.00",
+    "remaining_positive_invoice_balance_rs_by_observation_cutoff": "11123190.00",
+    "remaining_positive_balance_invoice_count_by_observation_cutoff": 6594,
+    "matched_capture_amount_rs_by_observation_cutoff": "122268647.00"
+  },
+  "payment_attempts_created_in_quarter": {
+    "attempt_rows": 78069,
+    "captured_rows": 75115,
+    "captured_amount_rs": "125656682.00",
+    "failed_rows": 2954,
+    "failed_attempt_amount_rs_not_receipts": "4911580.00",
+    "matched_capture_rows": 74368,
+    "matched_capture_amount_rs": "124333631.00",
+    "unmatched_capture_rows": 747,
+    "unmatched_capture_amount_rs": "1323051.00"
+  },
+  "settlement_period": {
+    "settlement_rows": 91,
+    "gross_rs": "123266859.98",
+    "fees_rs": "2524925.44",
+    "tax_rs": "454486.58",
+    "net_after_fees_tax_rs": "120287447.96",
+    "captured_attempts_linked_by_settlement_id_rs_all_payment_dates": "126246272.00",
+    "linked_captures_minus_settlement_gross_rs": "2979412.02",
+    "interpretation": "Diagnostic only; confirm date coverage, bank and cash records with Finance."
+  },
+  "limitations": [
+    "The original request does not specify the quarter year.",
+    "No matched gateway payment does not prove permanent nonpayment.",
+    "Malformed references stay unmatched; amount/date similarity is not used to guess identity.",
+    "The settlement comparison is not a bank reconciliation."
+  ],
+  "private_action_lists": [
+    "data\\clean\\brief_c\\actions\\q2_invoice_positive_balances.csv",
+    "data\\clean\\brief_c\\actions\\quarter_unmatched_captures.csv"
+  ]
+}

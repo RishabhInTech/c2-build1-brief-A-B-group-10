@@ -1,2 +1,2 @@
-y2025_h1_test_lines,y2026_h1_test_lines,actual_yoy_growth_pct,y2026_h1_plan,implied_plan_growth_pct,plan_attainment_pct,variance_vs_plan
-436094,454873,4.31,515740,18.26,88.2,-60867
+y2025_h1_test_lines,y2026_h1_test_lines,actual_yoy_growth_pct,raw_2026_lines_including_rescheduled,rescheduled_lines_excluded,raw_growth_including_rescheduled_pct,y2026_h1_plan,implied_plan_growth_pct,plan_attainment_pct,variance_vs_plan
+436094,451332,3.49,454873,3541,4.31,515740,18.26,87.51,-64408

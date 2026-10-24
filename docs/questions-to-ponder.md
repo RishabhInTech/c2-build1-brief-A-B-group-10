@@ -10,7 +10,7 @@ Every question can be answered at five levels. The levels come from the five-why
 
 | Level | What you can say | Example, brief A |
 |---|---|---|
-| 1 · Report | The number. | "Test volume grew 5 percent." |
+| 1 · Report | The number. | "Active booked test lines grew 3.49 percent after superseded reschedules were excluded." |
 | 2 · Explain | What moved it. | "Patients grew 4, visits per patient fell 2, tests per visit grew 3." |
 | 3 · Confidence | How sure you are, and why. | "The patient count comes from two tables that agree to within 0.3 percent; the visits figure depends on our identity rule for rescheduled bookings." |
 | 4 · Decide | What to do, and the cost of being wrong. | "Fund retention in the two cities, not acquisition. If our identity rule is wrong, the frequency fall is half the size and the money is better spent on home collection." |
@@ -57,7 +57,7 @@ Every question can be answered at five levels. The levels come from the five-why
 - How many rows, how many distinct keys, and why do the two differ?
 - What share of each column is empty, and is the emptiness random or does it cluster in a city, a month, a system?
 - Which columns are text that should be numbers, and what happens to a sum when they stay text?
-- What is the earliest and latest date, and does that match the period the brief describes?
+- What is the earliest and latest date, and does that match the stated time window?
 - Which values appear far too often? Which appear exactly once?
 
 ### About each decision

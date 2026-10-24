@@ -68,13 +68,14 @@ def main():
     data_dir = resolve_data_dir(args.data_dir)
     output_dir = Path(args.output_dir).expanduser().resolve()
 
-    # Count nonblank booking-test lines. Blank codes are retained in the clean
-    # table but excluded from test-volume analysis per decisions_log.csv.
+    # Count coded booking-test lines and exclude superseded Nova reschedules.
     plan = {
         (r["city"], r["month"][5:7]): int(r["target"])
         for r in rows(data_dir, "plan_2026_h1.csv")
     }
     volume = Counter()
+    raw_volume = Counter()
+    rescheduled_volume = Counter()
     channel_volume = Counter()
     source_volume = Counter()
     system_volume = Counter()
@@ -84,10 +85,15 @@ def main():
         if year not in ("2025", "2026") or month not in MONTHS or not (r["test_code"] or "").strip():
             continue
         city = r["city"]
+        key = (year, city, month)
+        raw_volume[key] += 1
+        if r.get("booking_status", "").strip().lower() == "rescheduled":
+            rescheduled_volume[key] += 1
+            continue
         channel = r["channel"] or "(blank)"
         source = r["source"] or "(blank)"
         system = r["source_system"] or "(blank)"
-        volume[(year, city, month)] += 1
+        volume[key] += 1
         channel_volume[(year, city, month, channel)] += 1
         source_volume[(year, city, month, source)] += 1
         system_volume[(year, city, month, system)] += 1
@@ -95,11 +101,16 @@ def main():
     cities = sorted(TREATED | CONTROLS)
     total_2025 = sum(volume[("2025", city, month)] for city in cities for month in MONTHS)
     total_2026 = sum(volume[("2026", city, month)] for city in cities for month in MONTHS)
+    raw_2026 = sum(raw_volume[("2026", city, month)] for city in cities for month in MONTHS)
+    rescheduled_2026 = sum(rescheduled_volume[("2026", city, month)] for city in cities for month in MONTHS)
     total_plan = sum(plan[(city, month)] for city in cities for month in MONTHS)
     overall_output = [{
         "y2025_h1_test_lines": total_2025,
         "y2026_h1_test_lines": total_2026,
         "actual_yoy_growth_pct": round(pct(total_2025, total_2026), 2),
+        "raw_2026_lines_including_rescheduled": raw_2026,
+        "rescheduled_lines_excluded": rescheduled_2026,
+        "raw_growth_including_rescheduled_pct": round(pct(total_2025, raw_2026), 2),
         "y2026_h1_plan": total_plan,
         "implied_plan_growth_pct": round(pct(total_2025, total_plan), 2),
         "plan_attainment_pct": round(total_2026 / total_plan * 100, 2),
@@ -107,20 +118,57 @@ def main():
     }]
     write_csv(output_dir / "brief_a_h1_overall.csv", overall_output,
               ["y2025_h1_test_lines", "y2026_h1_test_lines", "actual_yoy_growth_pct",
+               "raw_2026_lines_including_rescheduled", "rescheduled_lines_excluded",
+               "raw_growth_including_rescheduled_pct",
                "y2026_h1_plan", "implied_plan_growth_pct", "plan_attainment_pct", "variance_vs_plan"])
     print("H1 all-city headline")
     print(f"  2025={total_2025:,} 2026={total_2026:,} growth={pct(total_2025,total_2026):+.1f}% plan={total_plan:,} implied plan growth={pct(total_2025,total_plan):+.1f}% attainment={total_2026/total_plan*100:.1f}%")
+    print(f"  Raw 2026={raw_2026:,}; excluded {rescheduled_2026:,} superseded reschedule lines (raw growth {pct(total_2025,raw_2026):+.1f}%)")
+
+    monthly_output = []
+    for month in MONTHS:
+        old = sum(volume[("2025", city, month)] for city in cities)
+        new = sum(volume[("2026", city, month)] for city in cities)
+        raw_new = sum(raw_volume[("2026", city, month)] for city in cities)
+        rescheduled = sum(rescheduled_volume[("2026", city, month)] for city in cities)
+        target = sum(plan[(city, month)] for city in cities)
+        monthly_output.append({"month": f"2026-{month}", "y2025_test_lines": old,
+                              "y2026_test_lines": new, "plan": target,
+                              "raw_2026_lines_including_rescheduled": raw_new,
+                              "rescheduled_lines_excluded": rescheduled,
+                              "yoy_growth_pct": round(pct(old, new), 2),
+                              "variance_vs_plan": new - target,
+                              "plan_attainment_pct": round(new / target * 100, 2)})
+    write_csv(output_dir / "brief_a_h1_monthly.csv", monthly_output,
+              ["month", "y2025_test_lines", "y2026_test_lines", "raw_2026_lines_including_rescheduled",
+               "rescheduled_lines_excluded", "plan", "yoy_growth_pct",
+               "variance_vs_plan", "plan_attainment_pct"])
+
+    channel_city = []
+    for city in cities:
+        for channel in ("clinic", "home"):
+            old = sum(channel_volume[("2025", city, month, channel)] for month in MONTHS)
+            new = sum(channel_volume[("2026", city, month, channel)] for month in MONTHS)
+            channel_city.append({"city": city, "channel": channel, "y2025_test_lines": old,
+                                 "y2026_test_lines": new, "change": new - old,
+                                 "yoy_growth_pct": round(pct(old, new), 2)})
+    write_csv(output_dir / "brief_a_h1_channel_by_city.csv", channel_city,
+              ["city", "channel", "y2025_test_lines", "y2026_test_lines", "change", "yoy_growth_pct"])
 
     city_output = []
     print("H1 volume and plan attainment by city")
     for city in cities:
         y25 = sum(volume[("2025", city, m)] for m in MONTHS)
         y26 = sum(volume[("2026", city, m)] for m in MONTHS)
+        raw_y26 = sum(raw_volume[("2026", city, m)] for m in MONTHS)
+        rescheduled = sum(rescheduled_volume[("2026", city, m)] for m in MONTHS)
         target = sum(plan[(city, m)] for m in MONTHS)
         group = "treated" if city in TREATED else "control"
         record = {
             "city": city, "group": group,
             "y2025_h1_test_lines": y25, "y2026_h1_test_lines": y26,
+            "raw_2026_lines_including_rescheduled": raw_y26,
+            "rescheduled_lines_excluded": rescheduled,
             "yoy_growth_pct": round(pct(y25, y26), 2),
             "y2026_h1_plan": target,
             "plan_attainment_pct": round(y26 / target * 100, 2),
@@ -135,6 +183,7 @@ def main():
     write_csv(
         output_dir / "brief_a_b_city_summary.csv", city_output,
         ["city", "group", "y2025_h1_test_lines", "y2026_h1_test_lines",
+         "raw_2026_lines_including_rescheduled", "rescheduled_lines_excluded",
          "yoy_growth_pct", "y2026_h1_plan", "plan_attainment_pct", "variance_vs_plan"],
     )
 
@@ -237,7 +286,8 @@ def main():
     for r in rows(data_dir, "bookings.csv"):
         ym = r["created_at"][:7]
         code = (r["test_code"] or "").strip()
-        if ym[:4] not in ("2025", "2026") or ym[5:7] not in MONTHS or not code:
+        if (ym[:4] not in ("2025", "2026") or ym[5:7] not in MONTHS or not code
+                or r.get("booking_status", "").strip().lower() == "rescheduled"):
             continue
         bid = r["booking_id"]
         group = "treated" if r["city"] in TREATED else "control"
@@ -256,7 +306,8 @@ def main():
     for r in rows(data_dir, "bookings.csv"):
         ym = r["created_at"][:7]
         code = (r["test_code"] or "").strip()
-        if ym[:4] not in ("2025", "2026") or ym[5:7] not in MONTHS or not code:
+        if (ym[:4] not in ("2025", "2026") or ym[5:7] not in MONTHS or not code
+                or r.get("booking_status", "").strip().lower() == "rescheduled"):
             continue
         key = booking_meta[r["booking_id"]]
         if (r["booking_id"], code) in result_pairs:

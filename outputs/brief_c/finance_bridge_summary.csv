@@ -1,0 +1,10 @@
+bridge_item,rows,amount_rs
+Q2 invoices,79246,132847274.00
+Captured attempts matched by quarter end,71211,119265677.00
+Invoices with no matched capture by quarter end,8344,14090027.00
+Partially paid invoices by quarter end,12,14836.00
+Overcaptured invoices by quarter end,318,523266.00
+"Positive balances less overcaptures (diagnostic, not accounting net)",8356,13581597.00
+Unmatched captured attempts created in quarter,747,1323051.00
+Failed attempts created in quarter (not receipts),2954,4911580.00
+Unmatched captured attempts all observed,4588,7269408.00
