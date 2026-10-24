@@ -1,4 +1,4 @@
-# Decisions log · cleaning and reconciliation · Brief <LETTER> · Group <N>
+# Decisions log · cleaning and reconciliation · Brief C · Group 10
 
 Every act of cleaning is a decision with a reason and an effect. Input equals clean plus rejected, every time. The headline number is recomputed after every decision so the bridge from raw to final is visible.
 
