@@ -1,4 +1,4 @@
-# Project charter · Brief <LETTER> · Group <N>
+# Project charter · Brief C · Group 10
 
 The charter is the one page a sponsor signs before work starts. It says what will be delivered, by whom, by when, with what, and what counts as done. Fill it in Scope and commit it before the first notebook. Change it later only by adding a dated line under "Changes", never by silent edit.
 
