@@ -1,4 +1,4 @@
-# Project statement · Brief <LETTER> · Group <N>
+# Project statement · Brief C · Group 10
 
 Written in Scope, before the data is opened. Updated when the data proves a line wrong, with the old line struck through rather than deleted, so the panel can see what you learned.
 
