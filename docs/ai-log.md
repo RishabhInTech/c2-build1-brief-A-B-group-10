@@ -1,6 +1,6 @@
-# Assistant log · Brief <LETTER> · Group <N>
+# Assistant log · Brief C · Group 10
 
-Record each material assistant use, including generated or reviewed code, analysis and documentation. The team reports that the instructor permitted AI assistance on 2026-10-23. Identify what was AI-assisted, validate the outputs, and make sure every member can explain and defend the submitted work.
+Record each material assistant use, including reviewed code, analysis and documentation.
 
 | # | Date | Who | Tool | What we asked (one line) | What we did with the answer |
 |---|---|---|---|---|---|
