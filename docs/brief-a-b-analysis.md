@@ -4,7 +4,7 @@
 
 ## H1 result
 
-The primary count excludes 3,541 H1 2026 test lines on superseded records marked `rescheduled`, following the booking identity rule in notebook 03. Active booked test lines grew from **436,094** in H1 2025 to **451,332** in H1 2026 (**+3.49%**). The six-city plan was **515,740** (**+18.26%** implied growth), so actual volume reached **87.51% of plan** and missed by **64,408 lines**.
+The comparison is January–June 2026 against January–June 2025 only. Both actual and planned growth use the **436,094 H1 2025 active test lines** as the baseline, not full-year 2025. The primary count excludes 3,541 H1 2026 test lines on superseded records marked `rescheduled`, following the booking identity rule in notebook 03; no H1 2025 test lines were marked `rescheduled`. Active booked test lines grew to **451,332** in H1 2026 (**+3.49%**). The six-city plan was **515,740** (**+18.26%** implied growth), so actual volume reached **87.51% of plan** and missed by **64,408 lines**.
 
 Keeping the rescheduled records would give 454,873 lines and +4.31% growth. That sensitivity is not the chosen measure because it counts old and replacement booking records for rescheduled visits.
 

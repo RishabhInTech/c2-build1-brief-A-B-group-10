@@ -6,7 +6,7 @@
 
 After that adjustment, H1 2026 has **451,332** active test lines versus **436,094** in H1 2025, up **15,238**. The 2026 six-city plan is **515,740** lines, equivalent to **18.26% growth** over the 2025 baseline. Actual volume reached **87.51% of plan** and finished **64,408 lines short**, a **14.77 percentage-point** gap between actual and implied plan growth.
 
-The measure counts one row per booking-test line with a nonblank `test_code`, grouped by `created_at` month, across Ahmedabad, Bengaluru, Chennai, Hyderabad, Jaipur and Pune. It compares January–June 2026 with the same months in 2025. It excludes `booking_status = rescheduled` from H1 2026 per the booking identity rule in notebook 03. The target is the sum of the six cities' January–June monthly targets in `plan_2026_h1.csv`.
+The measure counts one row per booking-test line with a nonblank `test_code`, grouped by `created_at` month, across Ahmedabad, Bengaluru, Chennai, Hyderabad, Jaipur and Pune. It compares January–June 2026 with January–June 2025 only. Both actual growth and plan growth use the **436,094 active H1 2025 lines** as their denominator; neither uses full-year 2025. It excludes `booking_status = rescheduled` from H1 2026 per the booking identity rule in notebook 03. No H1 2025 test lines were marked `rescheduled`, so the adjustment affects only the 2026 count. The target is the sum of the six cities' January–June monthly targets in `plan_2026_h1.csv`.
 
 ```text
 Active H1 2026 lines = 454,873 raw lines − 3,541 superseded reschedule lines = 451,332
