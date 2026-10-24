@@ -43,6 +43,8 @@ The handbook says “second quarter” without a year. Q2 2025 and Q2 2026 both 
 
 ## Reproducibility
 
+The read-only Python checks for shapes, dtypes, missing values, duplicate rows/IDs, and exact invoice-reference matches are documented in [`brief-c-validation.md`](brief-c-validation.md).
+
 The finance-only cleaner is [`clean_brief_c.py`](../clean_brief_c.py). From the repository root, run it against the full local source pack:
 
 ```powershell
