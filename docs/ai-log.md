@@ -1,9 +1,11 @@
 # Assistant log · Brief <LETTER> · Group <N>
 
-Every use of a coding or chat assistant, one line each. Allowed uses: explaining an error you already tried to read, explaining a concept you then rewrite in your own words, checking English in the write-up without changing meaning. Not allowed: generating analysis, notebooks, cells, charts, slides, write-ups or the video script; asking what the answer or approach should be; pasting Kalpa Health data in.
-
-An empty log next to notebooks that read like a tutorial is a claim the panel will test. Twenty honest lines are fine.
+Record each material assistant use, including generated or reviewed code, analysis and documentation. The team reports that the instructor permitted AI assistance on 2026-10-23. Identify what was AI-assisted, validate the outputs, and make sure every member can explain and defend the submitted work.
 
 | # | Date | Who | Tool | What we asked (one line) | What we did with the answer |
 |---|---|---|---|---|---|
-| 1 | | | | | |
+| 1 | 2026-10-23 | Rishabh | OpenAI Codex | Asked for a quality review of the cleaning and reconciliation before analysis. | Used the review to check source hashes, retained exceptions and cross-table joins; still responsible for verifying and explaining the cleaning decisions. |
+| 2 | 2026-10-23 | Rishabh | OpenAI Codex | Asked for Brief A city/channel analysis and a comparison with Brief B's Chennai/Jaipur booking-system migration, including runnable Python. | Reviewed the metric, treated/control groups, pre/post comparison, denominator correction and caveats; will verify and explain the results to the team. |
+| 3 | 2026-10-23 | Rishabh | OpenAI Codex | Asked for help preparing the analysis code, aggregate outputs and related documentation for the GitHub repository. | Used the generated script and documentation as a draft; full data remains outside the repo, and the team will review the committed artifacts. |
+| 4 | 2026-10-23 | Rishabh | OpenAI Codex | Asked to investigate Brief D clinic no-show rates and connect the outcome analysis to Briefs A and B, with runnable code and outputs. | Reviewed the booking-level definition, unknown-outcome treatment, case-mix strata, conditional shuffle, multiple-clinic adjustment and migration-era missingness; validate the code and explain the limits before presenting. |
+| 5 | 2026-10-24 | Rishabh | OpenAI Codex | Asked to clean only Brief C finance sources in a separate folder, select C as the final focus after D had no reliable clinic finding, and organize all generated code/artifacts on the Rishabh branch according to the starter kit. | Used a finance-only cleaning script and documentation draft; corrected payment ID validation after profiling, retained reference exceptions without guessed joins, and kept row-level finance data out of Git. Team must review and defend the period, mapping rule and bridge. |
