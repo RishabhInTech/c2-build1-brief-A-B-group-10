@@ -192,7 +192,7 @@ def main():
         ("money", "Convert paise to rupees with Decimal", "Avoid rounding errors."),
         ("references", "Uppercase and preserve raw payment references", "Do not guess invoice matches during cleaning."),
         ("attempts", "Keep failed and captured attempts", "Status determines which rows are receipts."),
-        ("time", "Keep epoch and add UTC and India timestamps", "Use one quarter boundary."),
+        ("time", "Keep epoch and add UTC and India timestamps", "Use the H1 cutoff consistently."),
         ("privacy", "Drop patient names and IDs; retain booking ID", "Keep only fields needed for audit."),
         ("issues", "Keep and flag questionable rows", "Preserve the source trail."),
     ]

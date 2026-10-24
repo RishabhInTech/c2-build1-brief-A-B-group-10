@@ -4,10 +4,10 @@ This folder is the skeleton of your group's repository. Copy it into a new publi
 
 ## Current analysis status
 
-**Analysis order:** first establish H1 test-volume growth against plan, then show the finance bridge. After excluding 3,541 superseded reschedule lines, H1 active booked test lines grew 3.49% (451,332 versus 436,094), against 18.26% implied by plan; the gap is 64,408 lines. The unfiltered sensitivity is 4.31%. The volume result and its limits are in [`docs/project-analysis.md`](docs/project-analysis.md). The final COO question is Brief C: “Which invoices were never paid, which payments match no invoice, and how much of the gap is only timing?” Its provisional Q2 2026 bridge is documented with cutoff, row counts, INR amounts and limitations.
+**Analysis order:** first establish H1 test-volume growth against plan, then show the H1 2026 finance bridge. After excluding 3,541 superseded reschedule lines, H1 active booked test lines grew 3.49% (451,332 versus 436,094), against 18.26% implied by plan; the gap is 64,408 lines. The unfiltered sensitivity is 4.31%. The volume result and its limits are in [`docs/project-analysis.md`](docs/project-analysis.md). The final COO question is Brief C: “Which invoices were never paid, which payments match no invoice, and how much of the gap is only timing?” Its H1 bridge is documented in crores, with cutoff, row counts and limitations.
 
 1. **H1 volume first:** see the calculation, city/month/channel breakdown and migration limits in [`docs/project-analysis.md`](docs/project-analysis.md) and [`docs/brief-a-b-analysis.md`](docs/brief-a-b-analysis.md).
-2. **Finance bridge next:** the Q2 reconciliation and action lists are in [`docs/brief-c-analysis.md`](docs/brief-c-analysis.md) and [`docs/project-statement.md`](docs/project-statement.md).
+2. **Finance bridge next:** the H1 2026 reconciliation and action lists are in [`docs/brief-c-analysis.md`](docs/brief-c-analysis.md) and [`docs/project-statement.md`](docs/project-statement.md).
 
 ### Reproducible command-line workflows
 

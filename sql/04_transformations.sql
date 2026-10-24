@@ -42,9 +42,9 @@ LEFT JOIN (SELECT city, month, sum(n_tests) AS tests FROM bookings WHERE status_
        ON m.city = p.city AND m.month = p.month
 ORDER BY p.city, p.month;
 
--- 4. Q2 2026 invoice balances. Amounts use captured payments through quarter close.
-WITH q2 AS (
-    SELECT invoice_id, amount_rs FROM invoices WHERE invoice_date >= '2026-04-01' AND invoice_date < '2026-07-01'
+-- 4. H1 2026 invoice balances. Amounts use captured payments through 30 June.
+WITH h1 AS (
+    SELECT invoice_id, amount_rs FROM invoices WHERE invoice_date >= '2026-01-01' AND invoice_date < '2026-07-01'
 ),
 paid AS (
     SELECT invoice_id,
@@ -57,13 +57,13 @@ SELECT count(*) AS invoices, sum(q.amount_rs) AS invoiced_rs,
        sum(q.amount_rs) FILTER (WHERE p.paid_rs IS NULL) AS no_capture_rs,
        sum(greatest(q.amount_rs - coalesce(p.paid_rs, 0), 0)) AS positive_balance_rs,
        count(*) FILTER (WHERE p.captures > 1) AS invoices_with_multiple_captures
-FROM q2 q LEFT JOIN paid p USING (invoice_id);
+FROM h1 q LEFT JOIN paid p USING (invoice_id);
 
--- 5. Q2 captured payments without a matching invoice.
+-- 5. H1 captured payments without a matching invoice.
 SELECT p.payment_id, p.notes_invoice_ref, p.invoice_id AS normalised_ref, p.amount_rs
 FROM payments p
 LEFT JOIN invoices i ON i.invoice_id = p.invoice_id
-WHERE p.status = 'captured' AND p.created_at >= '2026-04-01' AND p.created_at < '2026-07-01'
+WHERE p.status = 'captured' AND p.created_at >= '2026-01-01' AND p.created_at < '2026-07-01'
   AND i.invoice_id IS NULL
 ORDER BY p.amount_rs DESC;
 

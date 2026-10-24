@@ -10,11 +10,11 @@ The analysis begins with the H1 test-volume plan check. Excluding 3,541 supersed
 
 ## 2. The question in our words
 
-Dr Menon needs an auditable bridge from invoices raised to money collected, with counts and rupee amounts at every step. The COO should be able to distinguish unpaid invoices, captured payments that cannot be linked to an invoice, failed attempts, and payments or settlements recorded after the quarter boundary, then give Finance a review list.
+Dr Menon needs an auditable H1 2026 bridge from invoices raised to money collected, with counts and amounts in crores at every step. The COO should be able to distinguish invoices without a captured match, captured payments that cannot be linked to an invoice, failed attempts, and payments or settlements recorded after 30 June, then give Finance a review list.
 
 ## 3. The question she did not ask
 
-Which year is the “second quarter,” and what payment/settlement cutoff should define “collected by quarter end”? The supplied files contain Q2 2025 and Q2 2026 invoices and payments after quarter-end; the year and cutoff can change both the unpaid list and the timing bar. Confirm these with the team and Finance before reporting a final gap.
+The analysis uses H1 2026 invoices and payment attempts, with 30 June 23:59 IST as the close and 15 July IST as the observation cutoff. Finance must confirm that the supplied invoice, gateway, settlement, cash and reversal sources cover the full H1 period before the balance is final.
 
 ## 4. Translation into the method
 
@@ -23,7 +23,7 @@ Which year is the “second quarter,” and what payment/settlement cutoff shoul
 | “Invoices and collections disagree” | Reconciliation bridge | Invoice rows and payment-attempt rows have different grains; count and sum each separately. |
 | “Which invoices were never paid?” | LEFT join / anti-join from invoices to eligible captured payments | “No matching payment row” is not automatically “never paid” until period cutoff, reference variants, and payment status are checked. |
 | “Which payments match no invoice?” | Reverse anti-join from captured payments to invoices | Failed attempts are not collected money; repeated attempts must not be silently added as distinct receipts. |
-| “How much is only timing?” | Compare invoice, capture, and settlement timestamps across a stated quarter boundary | A payment after the invoice quarter can be late collection rather than a permanent loss; settlement net also differs from gateway gross by fees and tax. |
+| “How much is only timing?” | Compare invoice, capture, and settlement timestamps at the H1 boundary | A payment after 30 June can be late collection rather than a permanent loss; settlement net also differs from gateway gross by fees and tax. |
 
 ## 5. What does not transfer from Retail
 
@@ -45,8 +45,8 @@ Which year is the “second quarter,” and what payment/settlement cutoff shoul
 |---|---|---|
 | F1 | Profile invoice, gateway-payment, and settlement sources before joining. | Counts, amount totals, date ranges, statuses, ID formats, duplicates and missingness are in the Brief C profile. |
 | F2 | State and test an invoice-reference mapping rule. | Preserve source and normalized values; show match/unmatched counts and exceptions; compare alternatives in the approach log. |
-| F3 | Build an invoice-to-collected bridge with counts and INR amounts on every bar. | Reconcile input invoices = matched + unmatched; separately reconcile captured payment attempts = matched + unmatched, with row counts before/after joins. |
-| F4 | Separate nonpayment, unmatched captured payments, failed attempts, and quarter-boundary timing. | Actionable row lists and aggregate bridge bars trace to source file and row. |
+| F3 | Build an H1 invoice-to-collected bridge with counts and crore amounts on every bar. | Reconcile input invoices = matched + unmatched; separately reconcile captured payment attempts = matched + unmatched, with row counts before/after joins. |
+| F4 | Separate no-match invoices, unmatched captured payments, failed attempts, and H1-boundary timing. | Actionable row lists and aggregate bridge bars trace to source file and row. |
 | F5 | Explain the effect of settlement fees/tax and distinguish gateway capture from bank net. | Reconcile settlement gross, fees, tax and net separately; document any unreconciled bank/cash source. |
 
 ### Non-functional: how well it must do it
@@ -71,13 +71,13 @@ Which year is the “second quarter,” and what payment/settlement cutoff shoul
 
 | In | Out, and why |
 |---|---|
-| Invoice rows, captured and failed gateway attempts, settlements, reference mapping, quarter timing, fees/tax, and finance action lists. | Patient-level identity or clinical outcomes; they are not needed to answer the money question. |
-| Q2 bridge after the team/COO confirms the year and payment cutoff; adjacent periods are retained to measure late payments. | A claim that every unmatched invoice is permanently unpaid before the observation cutoff and finance source coverage are confirmed. |
+| H1 2026 invoices, captured and failed gateway attempts, settlements, reference mapping, H1 timing, fees/tax, and finance action lists. | Patient-level identity or clinical outcomes; they are not needed to answer the money question. |
+| H1 bridge through 30 June, with adjacent dates retained to measure late payments through 15 July. | A claim that every unmatched invoice is permanently unpaid before the observation cutoff and Finance confirms source coverage. |
 | Earlier A/B work as documented exploration and context. | Reopening those analyses as the final board question unless new evidence or a team decision changes scope. |
 
 ## 9. Done looks like
 
-A bridge from invoiced to collected in which every bar is a count and an amount, both sides reconcile, and Finance has a list to act on tomorrow. For this data, every bar will also name its grain, quarter, status rule, cutoff, and source rows; the bridge will separately show gateway fees/tax and payments that arrived after quarter close.
+A bridge from H1 invoiced to captured in which every bar has a count and a crore amount, both sides reconcile, and Finance has a list to act on tomorrow. Every bar names its grain, period, status rule, cutoff, and source rows; the bridge separately shows gateway fees/tax and payments observed after 30 June.
 
 ## 10. Who signs off
 
@@ -87,4 +87,4 @@ A bridge from invoiced to collected in which every bar is a count and an amount,
 | Finance controller | Every bridge count and amount reconciles to source rows and survives a re-run. | Hidden fan-out, failed attempts counted as receipts, or unexplained unmatched records. |
 | Finance operations / payment owner | The unmatched and late-payment lists can be investigated by invoice/payment reference. | An action list without source provenance or a mapping rule they can validate. |
 
-**Open team inputs:** confirm the Q2 year/cutoff, member names and roles, and the COO/Finance review date before the final bridge is presented.
+**Open team inputs:** confirm H1 source coverage, member names and roles, and the COO/Finance review date before the final bridge is presented.

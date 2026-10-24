@@ -61,4 +61,4 @@ Collection and result joins are coverage diagnostics at different grains, not co
 
 ## 2. Finance bridge
 
-After the volume check, the project answers the COO's money question: which Q2 invoices had no captured match, which captures lacked an invoice match, and how much changed after quarter close. The provisional Q2 2026 bridge, matching rule, settlement gap and Finance action lists are in [`brief-c-analysis.md`](brief-c-analysis.md).
+After the volume check, the project answers the COO's money question for H1 2026: which invoices had no captured match by 30 June, which H1 captures lacked an invoice match, and how much changed by the 15 July observation cutoff. The H1 bridge, matching rule, settlement gap and Finance action lists are in [`brief-c-analysis.md`](brief-c-analysis.md); all displayed monetary figures are in crores.
